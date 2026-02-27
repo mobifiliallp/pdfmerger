@@ -1,22 +1,25 @@
 {
-  "name": "pdfmerger",
-  "version": "0.2.1",
+  "name": "@mfllp/pdfmerger",
+  "version": "0.2.2",
   "description": "Uses the Pdfbox library to merge PDF files into a single PDF file.",
-  "main": "./distribution/index.js",
+  "main": "./source/index.js",
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=12.0.0"
   },
   "scripts": {
     "test": "node test.js",
-    "build": "babel source --presets babel-preset-es2015 --out-dir distribution",
-    "prepublish": "npm run build",
-    "prepare": "npm run build",
+    "prepublishOnly": "npm run jar",
     "setup": "cd source/pdfmerger && mvn clean install",
     "jar": "cd source/pdfmerger && mvn clean compile package"
   },
+  "files": [
+    "source/index.js",
+    "source/lib",
+    "jar/pdfmerger.jar"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bompi88/pdfmerger.git"
+    "url": "git+https://github.com/mobifiliallp/pdfmerger.git"
   },
   "keywords": [
     "pdf",
@@ -24,18 +27,19 @@
     "combine",
     "pdfbox"
   ],
-  "author": "Bjørn Bråthen (https://www.github.com/bompi88)",
+  "author": "Mobifilia LLP (https://www.github.com/mobifiliallp)",
+  "contributors": [
+    "Bjørn Bråthen (https://www.github.com/bompi88)"
+  ],
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/bompi88/pdfmerger/issues"
+    "url": "https://github.com/mobifiliallp/pdfmerger/issues"
   },
-  "homepage": "https://github.com/bompi88/pdfmerger#readme",
+  "homepage": "https://github.com/mobifiliallp/pdfmerger#readme",
   "devDependencies": {
-    "babel-cli": "^6.23.0",
-    "babel-preset-es2015": "^6.22.0",
-    "mkdirp": "^0.5.1",
+    "mkdirp": "^0.5.6",
     "mvn": "^3.5.0",
-    "testing": "^1.1.1",
-    "trash": "^4.0.1"
+    "testing": "^1.1.2",
+    "trash": "^5.2.0"
   }
 }
