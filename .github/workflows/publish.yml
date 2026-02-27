@@ -14,6 +14,10 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Install Maven
+        run: sudo apt-get install -y maven
 
       - uses: actions/setup-node@v4
         with:

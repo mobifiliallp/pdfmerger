@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>no.laererportalen.pdfmerger</groupId>
+  <groupId>com.mfllp.pdfmerger</groupId>
   <artifactId>pdfmerger</artifactId>
   <name>pdfmerger</name>
   <version>1.0-SNAPSHOT</version>
-  <url>http://maven.apache.org</url>
+  <url>https://github.com/mobifiliallp/pdfmerger</url>
   <build>
     <plugins>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
-        <version>3.0.0</version>
+        <version>3.5.3</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -23,7 +23,9 @@
                   <mainClass>no.laererportalen.pdfmerger.PDF</mainClass>
                 </transformer>
               </transformers>
-              <minimizeJar>true</minimizeJar>
+              <minimizeJar>false</minimizeJar>
+              <finalName>pdfmerger</finalName>
+              <outputDirectory>../../jar</outputDirectory>
             </configuration>
           </execution>
         </executions>
@@ -34,9 +36,18 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.13.2</version>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>hamcrest-core</artifactId>
+          <groupId>org.hamcrest</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
   </dependencies>
+  <properties>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+  </properties>
 </project>
-
